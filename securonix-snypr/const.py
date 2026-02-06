@@ -1,8 +1,9 @@
-"""" Copyright start
-    MIT License
-    Copyright (c) 2024 Fortinet Inc
-  Copyright end """
-
+"""
+Copyright start
+MIT License
+Copyright (c) 2026 Fortinet Inc
+Copyright end
+"""
 
 LAST_SEEN = {
     "Last 1 Hour": 1,
@@ -20,5 +21,3 @@ LAST_SEEN = {
     "Last 90 Days": 90,
     "Last Year": 365
 }
-
-

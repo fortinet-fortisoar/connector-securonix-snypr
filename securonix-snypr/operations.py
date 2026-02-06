@@ -1,8 +1,9 @@
-"""" Copyright start
-    MIT License
-    Copyright (c) 2024 Fortinet Inc
-  Copyright end """
-
+"""
+Copyright start
+MIT License
+Copyright (c) 2026 Fortinet Inc
+Copyright end
+"""
 
 import datetime, json, requests, time, xmltodict, logging, re
 from urllib.parse import parse_qs
@@ -13,7 +14,7 @@ from connectors.core.connector import get_logger, ConnectorError
 from .const import *
 
 logger = get_logger('securonix-snypr')
-#logger.setLevel(logging.DEBUG) #Set log level to debug, remove in production
+# logger.setLevel(logging.DEBUG) #Set log level to debug, remove in production
 
 error_msgs = {
     'time_out': 'The request timed out while trying to connect to the remote server',
@@ -34,7 +35,7 @@ class Securonix(object):
         self.username = config.get('username')
         self.password = config.get('password')
         self.tenant = config.get('tenant')
-        self.api_version = config.get('api_version','6.0')
+        self.api_version = config.get('api_version', '6.0')
         if '.' not in str(self.api_version):
             self.api_version = '6.0'
         self.verify_ssl = config.get('verify_ssl')
@@ -44,9 +45,8 @@ class Securonix(object):
         self.connector_version = connector_info.get('connector_version')
         self.headers = self.generate_headers()
 
-
     def make_rest_call(self, endpoint, params=None, headers=None, payload=None, method='GET'):
-        
+
         if not headers:
             headers = self.headers
         service_endpoint = '{0}{1}'.format(self.server_url, endpoint)
@@ -54,7 +54,7 @@ class Securonix(object):
         try:
             data = str(payload) if payload else None
             response = requests.request(method, service_endpoint, data=data, headers=headers, params=params,
-                                            verify=self.verify_ssl)
+                                        verify=self.verify_ssl)
             logger.debug('\n{0}\n'.format(dump.dump_all(response).decode('utf-8')))
             if response.ok:
                 content_type = response.headers.get('Content-Type')
@@ -160,7 +160,7 @@ def get_top_threats(config, params, connector_info):
     return sec.make_rest_call('/Snypr/ws/sccWidget/getTopThreats', params=query_string)
 
 
-def get_top_violations(config, params,connector_info):
+def get_top_violations(config, params, connector_info):
     sec = Securonix(config, connector_info)
     query_string = build_query_string(params)
     query_string.update({'offset': 0, 'max': 1000})
@@ -300,6 +300,7 @@ def generate_query_string(params):
     generation_time_to = params.get('generationtime_to')
     if generation_time_to:
         query += '&generationtime_to="{}"'.format(convert_datetime_format(generation_time_to))
+    query += '&max="{}"'.format("1")
     return query
 
 
@@ -327,7 +328,7 @@ def create_incident(config, params, connector_info):
 
 def get_incident_details(config, params, connector_info):
     sec = Securonix(config, connector_info)
-    sec.headers.update({'Accept':f'application/vnd.snypr.app-v{sec.api_version}+json'})
+    sec.headers.update({'Accept': f'application/vnd.snypr.app-v{sec.api_version}+json'})
     params.update({'type': 'metaInfo'})
     return sec.make_rest_call('/Snypr/ws/incident/get', params=params)
 
@@ -407,7 +408,7 @@ def list_incidents(config, params, connector_info):
     params['to'] = get_millisecond_epoch_time(params.get('to'))
     params['rangeType'] = params.get('rangeType').lower()
     params = {k: v for k, v in params.items() if v is not None and v != ''}
-    sec.headers.update({'Accept':f'application/vnd.snypr.app-v{sec.api_version}+json'})
+    sec.headers.update({'Accept': f'application/vnd.snypr.app-v{sec.api_version}+json'})
     return sec.make_rest_call('/Snypr/ws/incident/get', params=params)
 
 
@@ -453,4 +454,3 @@ operations = {
     'get_available_threat_action': get_available_threat_action,
     'add_comment': add_comment
 }
-

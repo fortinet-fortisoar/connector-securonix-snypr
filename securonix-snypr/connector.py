@@ -1,8 +1,9 @@
-""" Copyright start
-    MIT License
-    Copyright (c) 2024 Fortinet Inc
-  Copyright end """
-
+"""
+Copyright start
+MIT License
+Copyright (c) 2026 Fortinet Inc
+Copyright end
+"""
 
 from connectors.core.connector import Connector, get_logger, ConnectorError
 from .operations import operations, _check_health
@@ -26,5 +27,3 @@ class SecuronixConnector(Connector):
         connector_info = {"connector_name": self._info_json.get('name'),
                           "connector_version": self._info_json.get('version')}
         return _check_health(config, connector_info)
-
-

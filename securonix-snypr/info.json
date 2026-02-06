@@ -1,1479 +1,1483 @@
 {
-    "name": "securonix-snypr",
-    "version": "2.3.0",
-    "label": "Securonix SNYPR",
-    "description": "Connector facilitates automated operations to Analyze and detect the Threats, Violations and Risk associated with users in organisation.",
-    "publisher": "Fortinet",
-    "contributor": "Naili.M",
-    "icon_small_name": "small.png",
-    "icon_large_name": "large.png",
-    "category": "Analytics and SIEM",
-    "configuration": {
-        "fields": [
-            {
-                "title": "Server URL",
-                "name": "server_url",
-                "type": "text",
-                "description": "URL of the Securonix SNYPR server to which you will connect and perform the automated operations.",
-                "placeholder": "Please enter the server URL",
-                "required": true,
-                "editable": true,
-                "visible": true
-            },
-            {
-                "title": "Username",
-                "name": "username",
-                "type": "text",
-                "description": "Username to access the Securonix SNYPR server to which you will connect and perform the automated operations.",
-                "placeholder": "Please enter the valid Username",
-                "required": true,
-                "editable": true,
-                "visible": true
-            },
-            {
-                "title": "Password",
-                "name": "password",
-                "type": "password",
-                "description": "password to access the Securonix SNYPR server to which you will connect and perform the automated operations.",
-                "required": true,
-                "editable": true,
-                "visible": true
-            },
-            {
-                "title": "Tenant",
-                "name": "tenant",
-                "type": "text",
-                "description": "Tenant ID that has been configured for your account to access the Securonix SNYP Rserver.",
-                "required": true,
-                "editable": true,
-                "visible": true,
-                "value": ""
-            },
-            {
-                "title": "API Version",
-                "name": "api_version",
-                "type": "text",
-                "description": "Version of SNYPR API to use, default is 6.0.",
-                "required": true,
-                "editable": true,
-                "visible": true,
-                "value": "6.0"
-            },
-            {
-                "title": "Verify SSL",
-                "name": "verify_ssl",
-                "type": "checkbox",
-                "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
-                "required": false,
-                "editable": true,
-                "visible": true,
-                "value": true
-            }
-        ]
-    },
-    "operations": [
+  "name": "securonix-snypr",
+  "version": "2.3.0",
+  "label": "Securonix SNYPR",
+  "description": "Connector facilitates automated operations to Analyze and detect the Threats, Violations and Risk associated with users in organisation.",
+  "publisher": "Fortinet",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "contributor": "Naili.M",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "category": "Analytics and SIEM",
+  "ingestion_supported": true,
+  "ingestion_modes": [
+    "scheduled"
+  ],
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "type": "text",
+        "description": "URL of the Securonix SNYPR server to which you will connect and perform the automated operations.",
+        "tooltip": "URL of the Securonix SNYPR server to which you will connect and perform the automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Username",
+        "name": "username",
+        "type": "text",
+        "description": "Username to access the Securonix SNYPR server to which you will connect and perform the automated operations.",
+        "tooltip": "Username to access the Securonix SNYPR server to which you will connect and perform the automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Password",
+        "name": "password",
+        "type": "password",
+        "description": "Password to access the Securonix SNYPR server to which you will connect and perform the automated operations.",
+        "tooltip": "Password to access the Securonix SNYPR server to which you will connect and perform the automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Tenant",
+        "name": "tenant",
+        "type": "text",
+        "description": "Tenant ID that has been configured for your account to access the Securonix SNYP Rserver.",
+        "tooltip": "Tenant ID that has been configured for your account to access the Securonix SNYP Rserver.",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "API Version",
+        "name": "api_version",
+        "type": "text",
+        "description": "Specify the version of the Securonix SNYPR API to use. The default is 6.0.",
+        "tooltip": "Specify the version of the Securonix SNYPR API to use. The default is 6.0.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "value": "6.0"
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "add_comment",
+      "title": "Add Comment",
+      "description": "Adds a comment on a Securonix SNYPR incident based on the incident ID you have specified.",
+      "category": "investigation",
+      "annotation": "add_comment",
+      "output_schema": {
+        "status": "",
+        "messages": [],
+        "result": ""
+      },
+      "enabled": true,
+      "parameters": [
         {
-            "operation": "add_comment",
-            "title": "Add Comment",
-            "description": "Adds a comment on a Securonix SNYPR incident based on the incident ID you have specified.",
-            "category": "investigation",
-            "annotation": "add_comment",
-            "output_schema": {
-                "status": "",
-                "messages": [],
-                "result": ""
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Incident ID",
-                    "name": "incidentId",
-                    "type": "text",
-                    "tooltip": "ID of the incident in Securonix SNYPR to which you want to add comment.",
-                    "description": "ID of the incident in Securonix SNYPR to which you want to add comment.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Comment",
-                    "name": "comment",
-                    "type": "text",
-                    "tooltip": "Comment that you want to add to the specified incident.",
-                    "description": "Comment that you want to add to the specified incident.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
+          "title": "Incident ID",
+          "name": "incidentId",
+          "type": "text",
+          "tooltip": "ID of the incident in Securonix SNYPR to which you want to add comment.",
+          "description": "ID of the incident in Securonix SNYPR to which you want to add comment.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
         },
         {
-            "operation": "create_incident",
-            "title": "Create Incident",
-            "description": "Creates a new incident in the Securonix SNYPR platform based on the policy name, entity type, and other input parameters you have specified. Note: If the case is already created and is present in the Securonix SNYPR platform, then return the details of the existing incident.",
-            "category": "investigation",
-            "annotation": "create_incident",
-            "output_schema": {
-                "totalIncidents": "",
-                "incidentItems": [
-                    {
-                        "violatorText": "",
-                        "lastUpdateDate": "",
-                        "violatorId": "",
-                        "incidentType": "",
-                        "incidentId": "",
-                        "incidentStatus": "",
-                        "riskscore": "",
-                        "assignedUser": "",
-                        "priority": "",
-                        "reason": [],
-                        "violatorSubText": "",
-                        "entity": "",
-                        "workflowName": "",
-                        "url": "",
-                        "isWhitelisted": "",
-                        "watchlisted": "",
-                        "statusCompleted": ""
-                    }
-                ]
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Policy Name",
-                    "name": "violationName",
-                    "type": "text",
-                    "tooltip": "Name of the policy that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "description": "Name of the policy that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Data Source Name",
-                    "name": "datasourceName",
-                    "type": "text",
-                    "tooltip": "Name of the data source that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "description": "Name of the data source that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Account Name",
-                    "name": "entityName",
-                    "type": "text",
-                    "tooltip": "Name of the account that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "description": "Name of the account that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Entity Type",
-                    "name": "entityType",
-                    "type": "text",
-                    "tooltip": "Type of entity that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "description": "Type of entity that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Action Name",
-                    "name": "actionName",
-                    "type": "select",
-                    "tooltip": "Name of the action available in threat management that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "description": "Name of the action available in threat management that you want to associate with the new incident that you want to create in Securonix SNYPR. You can choose from the following options: Mark as Concern and create incident, Non-Concern, or Mark in progress (still investigating).",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "options": [
-                        "Mark as concern and create incident",
-                        "Non-Concern",
-                        "Mark in progress (still investigating)"
-                    ],
-                    "value": "Mark as concern and create incident"
-                },
-                {
-                    "title": "Resource Name ",
-                    "name": "resourceName",
-                    "type": "text",
-                    "tooltip": "Name of the resource that you want to associate with the new incident that you want to create in Securonix SNYPR. Note: This parameter required for Activity account.",
-                    "description": "Name of the resource that you want to associate with the new incident that you want to create in Securonix SNYPR. Note: This parameter required for Activity account.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Employee ID",
-                    "name": "employeeid",
-                    "type": "text",
-                    "tooltip": "(Optional) ID of the employee that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "description": "(Optional) ID of the employee that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Workflow Name",
-                    "name": "workflow",
-                    "type": "text",
-                    "tooltip": "Name of the workflow that you want to associate with the new incident that you want to create in Securonix SNYPR. Note: This field required when you specify the action name as Mark as concern and create incident.",
-                    "description": "Name of the workflow that you want to associate with the new incident that you want to create in Securonix SNYPR. Note: This field required when you specify the action name as Mark as concern and create incident.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Comment",
-                    "name": "comment",
-                    "type": "text",
-                    "tooltip": "Comment that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "description": "Comment that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Criticality",
-                    "name": "criticality",
-                    "type": "text",
-                    "tooltip": "Criticality that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "description": "Criticality that you want to associate with the new incident that you want to create in Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "check_task_on_incident",
-            "title": "Check Task on Incident",
-            "description": "Checks if the action that you have specified is allowed on the specified Securonix SNYPR incident based on the incident ID and action name you have specified.",
-            "category": "investigation",
-            "annotation": "check_task_on_incident",
-            "output_schema": {
-                "result": [
-                    {
-                        "status": "",
-                        "actionName": "",
-                        "actionDetails": [
-                            {
-                                "title": "",
-                                "sections": {
-                                    "attributes": [
-                                        {
-                                            "required": "",
-                                            "attribute": "",
-                                            "displayName": "",
-                                            "attributeType": ""
-                                        }
-                                    ],
-                                    "sectionName": ""
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "status": "",
-                "messages": []
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Incident ID",
-                    "name": "incidentId",
-                    "type": "text",
-                    "tooltip": "ID of the incident whose associated tasks and actions you want to retrieve from Securonix SNYPR.",
-                    "description": "ID of the incident whose associated tasks and actions you want to retrieve from Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Action Name",
-                    "name": "actionName",
-                    "type": "text",
-                    "tooltip": "Name of the action that you want to execute on the specific Securonix SNYPR incident.",
-                    "description": "Name of the action that you want to execute on the specific Securonix SNYPR incident.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "get_available_threat_action",
-            "title": "Get Available Threat Action",
-            "description": "Retrieves a list of all available threat actions from Securonix SNYPR.",
-            "category": "investigation",
-            "annotation": "get_available_threat_action",
-            "output_schema": {
-                "status": "",
-                "messages": [],
-                "result": []
-            },
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "get_incident_details",
-            "title": "Get Incident Details",
-            "description": "Retrieves details of a specific incident from Securonix SNYPR based on the incident ID you have specified.",
-            "category": "investigation",
-            "annotation": "get_incident_details",
-            "output_schema": {
-                "status": "",
-                "messages": "",
-                "result": {
-                    "data": {
-                        "totalIncidents": "",
-                        "incidentItems": [
-                            {
-                                "violatorText": "",
-                                "lastUpdateDate": "",
-                                "violatorId": "",
-                                "incidentType": "",
-                                "incidentId": "",
-                                "incidentStatus": "",
-                                "riskscore": "",
-                                "assignedUser": "",
-                                "assignedGroup": "",
-                                "priority": "",
-                                "reason": [],
-                                "violatorSubText": "",
-                                "entity": "",
-                                "workflowName": "",
-                                "url": "",
-                                "isWhitelisted": "",
-                                "watchlisted": "",
-                                "statusCompleted": ""
-                            }
-                        ]
-                    }
-                }
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Incident ID",
-                    "name": "incidentId",
-                    "type": "text",
-                    "description": "ID of the incident whose details you want to retrieve from Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "get_incident_status",
-            "title": "Get Incident Status",
-            "description": "Retrieves the status of a specific incident from Securonix SNYPR based on the incident ID you have specified.",
-            "category": "investigation",
-            "annotation": "get_incident_status",
-            "output_schema": {
-                "status": "",
-                "messages": [],
-                "result": {
-                    "status": ""
-                }
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Incident ID",
-                    "name": "incidentId",
-                    "type": "text",
-                    "tooltip": "ID of the incident whose status you want to retrieve from Securonix SNYPR.",
-                    "description": "ID of the incident whose status you want to retrieve from Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "get_incident_workflow",
-            "title": "Get Incident Workflow",
-            "description": "Retrieves the workflow of a specific incident from Securonix SNYPR based on the incident ID you have specified.",
-            "category": "investigation",
-            "annotation": "get_incident_workflow",
-            "output_schema": {
-                "status": "",
-                "messages": [],
-                "result": {
-                    "workflow": ""
-                }
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Incident ID",
-                    "name": "incidentId",
-                    "type": "text",
-                    "tooltip": "ID of the incident whose workflow you want to retrieve from Securonix SNYPR.",
-                    "description": "ID of the incident whose workflow you want to retrieve from Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "get_possible_action_for_incident",
-            "title": "Get Possible Actions for Incident",
-            "description": "Retrieves a list of all possible actions associated with a specific incident from Securonix SNYPR based on the incident ID you have specified.",
-            "category": "investigation",
-            "annotation": "get_possible_action_for_incident",
-            "output_schema": {
-                "result": [
-                    {
-                        "status": "",
-                        "actionName": "",
-                        "actionDetails": [
-                            {
-                                "title": "",
-                                "sections": {
-                                    "attributes": [
-                                        {
-                                            "required": "",
-                                            "attribute": "",
-                                            "displayName": "",
-                                            "attributeType": ""
-                                        }
-                                    ],
-                                    "sectionName": ""
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "status": "",
-                "messages": []
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Incident ID",
-                    "name": "incidentId",
-                    "type": "text",
-                    "tooltip": "ID of the incident whose related actions you want to retrieve from Securonix SNYPR.",
-                    "description": "ID of the incident whose related actions you want to retrieve from Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "get_risk_score",
-            "title": "Get Risk Score",
-            "description": "Retrieves risk scores for all users or risk scores from Securonix SNYPRbased on the query attributes and other input parameters that you have specified.",
-            "category": "investigation",
-            "annotation": "get_risk_score",
-            "output_schema": {},
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Query",
-                    "name": "query",
-                    "type": "text",
-                    "description": "Query attributes based on which you want to retrieve the risk score from Securonix SNYPR. Note: If you do not specify any query attribute, then the risk scores of all users is retrieved from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "placeholder": "e.g. location='xyz' and employeeid = 123",
-                    "value": ""
-                },
-                {
-                    "title": "Start Time",
-                    "name": "from",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to last calendar month.",
-                    "description": "Start date and time from when you want to retrieve the risk score from Securonix SNYPR.If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve the risk score from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "End Time",
-                    "name": "to",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to today.",
-                    "description": "End date and time till when you want to retrieve the risk score from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve the risk score from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "get_risk_history",
-            "title": "Get Risk History",
-            "description": "Retrieves risk history for all users or risk history from Securonix SNYPR based on the query attributes and other input parameters that you have specified.",
-            "category": "investigation",
-            "annotation": "get_risk_history",
-            "output_schema": {},
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Query",
-                    "name": "query",
-                    "type": "text",
-                    "description": "Query attributes based on which you want to retrieve the risk history from Securonix SNYPR. Note: If you do not specify any query attribute, then the risk history of all users is retrieved from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "placeholder": "e.g. location='xyz' and employeeid = 123",
-                    "value": ""
-                },
-                {
-                    "title": "Start Time",
-                    "name": "from",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to last calendar month.",
-                    "description": "Start date and time from when you want to retrieve details of violations from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve the risk history from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "End Time",
-                    "name": "to",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to today",
-                    "description": "End date and time till when you want to retrieve details of violations from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve the risk history from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "get_top_threats",
-            "title": "Get Top Threats",
-            "description": "Retrieves the top threats from Securonix SNYPR based on when the threat was last seen and other input parameters that you have specified.",
-            "category": "investigation",
-            "annotation": "get_top_threats",
-            "output_schema": {
-                "Response": {
-                    "Date range": [],
-                    "Docs": [
-                        {
-                            "Threat model id": "",
-                            "Threat nodel name": "",
-                            "Criticality": "",
-                            "No of violator": "",
-                            "Description": "",
-                            "Generation time": ""
-                        }
-                    ],
-                    "Total records": ""
-                }
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Last Seen",
-                    "name": "dateunit",
-                    "type": "select",
-                    "tooltip": "select time period one of the following",
-                    "description": "Time period for which you want to retrieve the top threats from Securonix SNYPR. You can choose one of the following: Hours, Days, or Years.Based on the option that you select in the Last Seen drop-down list, you must specify the value for the Hours, Days, or Years. For example, if you select Hours from the Last Seen drop-down list, then you must choose the value of the hours from the Last Hours drop-down list, for example, Last 24 hours, Last 1 hour etc.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "options": [
-                        "Hours",
-                        "Days",
-                        "Years"
-                    ],
-                    "onchange": {
-                        "Hours": [
-                            {
-                                "title": "Last Hours",
-                                "name": "dateunitvalue",
-                                "type": "select",
-                                "visible": true,
-                                "required": true,
-                                "editable": true,
-                                "options": [
-                                    "Last 1 Hour",
-                                    "Last 2 Hours",
-                                    "Last 6 Hours",
-                                    "Last 12 Hours",
-                                    "Last 24 Hours",
-                                    "Last 48 Hours",
-                                    "Last 72 Hours"
-                                ],
-                                "value": "Last 24 Hours"
-                            }
-                        ],
-                        "Days": [
-                            {
-                                "title": "Last Days",
-                                "name": "dateunitvalue",
-                                "type": "select",
-                                "visible": true,
-                                "required": true,
-                                "editable": true,
-                                "options": [
-                                    "Last 7 Days",
-                                    "Last 14 Days",
-                                    "Last 21 Days",
-                                    "Last 30 Days",
-                                    "Last 60 Days",
-                                    "Last 90 Days"
-                                ],
-                                "value": "Last 7 Days"
-                            }
-                        ],
-                        "Years": [
-                            {
-                                "title": "Last Years",
-                                "name": "dateunitvalue",
-                                "type": "select",
-                                "visible": true,
-                                "required": true,
-                                "editable": true,
-                                "options": [
-                                    "Last Year"
-                                ],
-                                "value": "Last Year"
-                            }
-                        ]
-                    },
-                    "value": "Days"
-                }
-            ]
-        },
-        {
-            "operation": "get_top_violations",
-            "title": "Get Top Violations",
-            "description": "Retrieves the top violations from Securonix SNYPR based on when the violation was last seen and other input parameters that you have specified.",
-            "category": "investigation",
-            "annotation": "get_top_violations",
-            "output_schema": {
-                "Response": {
-                    "Date range": [],
-                    "Docs": [
-                        {
-                            "Criticality": "",
-                            "No of violator": "",
-                            "Description": "",
-                            "Generation time": "",
-                            "Policy id": "",
-                            "Policy name": "",
-                            "Violation entity": "",
-                            "Policy category": "",
-                            "Threat indicator": ""
-                        }
-                    ],
-                    "Total records": ""
-                }
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Last Seen",
-                    "name": "dateunit",
-                    "type": "select",
-                    "tooltip": "select time period one of the following",
-                    "description": "Time period for which you want to retrieve the top violations from Securonix SNYPR. You can choose one of the following: Hours, Days, or Years. Based on the option that you select in the Last Seen drop-down list, you must specify the value for the Hours, Days, or Years. For example, if you select Hours from the Last Seen drop-down list, then you must choose the value of the hours from the Last Hours drop-down list, for example, Last 24 hours, Last 1 hour, etc.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "options": [
-                        "Hours",
-                        "Days",
-                        "Years"
-                    ],
-                    "onchange": {
-                        "Hours": [
-                            {
-                                "title": "Last Hours",
-                                "name": "dateunitvalue",
-                                "type": "select",
-                                "visible": true,
-                                "required": true,
-                                "editable": true,
-                                "options": [
-                                    "Last 1 Hour",
-                                    "Last 2 Hours",
-                                    "Last 6 Hours",
-                                    "Last 12 Hours",
-                                    "Last 24 Hours",
-                                    "Last 48 Hours",
-                                    "Last 72 Hours"
-                                ],
-                                "value": "Last 24 Hours"
-                            }
-                        ],
-                        "Days": [
-                            {
-                                "title": "Last Days",
-                                "name": "dateunitvalue",
-                                "type": "select",
-                                "visible": true,
-                                "required": true,
-                                "editable": true,
-                                "options": [
-                                    "Last 7 Days",
-                                    "Last 14 Days",
-                                    "Last 21 Days",
-                                    "Last 30 Days",
-                                    "Last 60 Days",
-                                    "Last 90 Days"
-                                ],
-                                "value": "Last 7 Days"
-                            }
-                        ],
-                        "Years": [
-                            {
-                                "title": "Last Years",
-                                "name": "dateunitvalue",
-                                "type": "select",
-                                "visible": true,
-                                "required": true,
-                                "editable": true,
-                                "options": [
-                                    "Last Year"
-                                ],
-                                "value": "Last Year"
-                            }
-                        ]
-                    },
-                    "value": "Days"
-                }
-            ]
-        },
-        {
-            "operation": "get_top_violators",
-            "title": "Get Top Violators",
-            "description": "Retrieves the top violators from Securonix SNYPR based on when the violator was last seen and other input parameters that you have specified.",
-            "category": "investigation",
-            "annotation": "get_top_violators",
-            "output_schema": {
-                "Response": {
-                    "Date range": [],
-                    "Docs": [
-                        {
-                            "Violator entity": "",
-                            "Department": "",
-                            "Name": "",
-                            "Risk score": "",
-                            "Generation time": ""
-                        }
-                    ],
-                    "Total records": ""
-                }
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Last Seen",
-                    "name": "dateunit",
-                    "type": "select",
-                    "description": "Time period for which you want to retrieve the top violators from Securonix SNYPR. You can choose one of the following: Hours, Days, or Years. Based on the option that you select in the Last Seen drop-down list, you must specify the value for the Hours, Days, or Years. For example, if you select Hours from the Last Seen drop-down list, then you must choose the value of the hours from the Last Hours drop-down list, for example, Last 24 hours, Last 1 hour, etc.",
-                    "tooltip": "select time period one of the following",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "options": [
-                        "Hours",
-                        "Days",
-                        "Years"
-                    ],
-                    "onchange": {
-                        "Hours": [
-                            {
-                                "title": "Last Hours",
-                                "name": "dateunitvalue",
-                                "type": "select",
-                                "visible": true,
-                                "required": true,
-                                "editable": true,
-                                "options": [
-                                    "Last 1 Hour",
-                                    "Last 2 Hours",
-                                    "Last 6 Hours",
-                                    "Last 12 Hours",
-                                    "Last 24 Hours",
-                                    "Last 48 Hours",
-                                    "Last 72 Hours"
-                                ],
-                                "value": "Last 24 Hours"
-                            }
-                        ],
-                        "Days": [
-                            {
-                                "title": "Last Days",
-                                "name": "dateunitvalue",
-                                "type": "select",
-                                "visible": true,
-                                "required": true,
-                                "editable": true,
-                                "options": [
-                                    "Last 7 Days",
-                                    "Last 14 Days",
-                                    "Last 21 Days",
-                                    "Last 30 Days",
-                                    "Last 60 Days",
-                                    "Last 90 Days"
-                                ],
-                                "value": "Last 7 Days"
-                            }
-                        ],
-                        "Years": [
-                            {
-                                "title": "Last Years",
-                                "name": "dateunitvalue",
-                                "type": "select",
-                                "visible": true,
-                                "required": true,
-                                "editable": true,
-                                "options": [
-                                    "Last Year"
-                                ],
-                                "value": "Last Year"
-                            }
-                        ]
-                    },
-                    "value": "Days"
-                },
-                {
-                    "title": "Offset",
-                    "name": "offset",
-                    "type": "integer",
-                    "description": "0 based index of the page that this operation should return.",
-                    "tooltip": "0 based index of the page that this operation should return.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Limit",
-                    "name": "max",
-                    "type": "integer",
-                    "description": "Maximum number of results per page, that this operation should return.",
-                    "tooltip": "Maximum number of results, per page, that this operation should return.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "get_workflows",
-            "title": "Get Workflows",
-            "description": "Retrieves a list of all existing workflows from Securonix SNYPR.",
-            "category": "investigation",
-            "annotation": "get_workflows",
-            "output_schema": {
-                "result": {
-                    "workflows": [
-                        {
-                            "type": "",
-                            "value": "",
-                            "workflow": ""
-                        }
-                    ]
-                },
-                "status": "",
-                "messages": []
-            },
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "get_workflow_default_assignee",
-            "title": "Get Workflow Default Assignee",
-            "description": "Retrieves the default assignee details for a specified workflow from Securonix SNYPR based on the workflow name you have specified.",
-            "category": "investigation",
-            "annotation": "get_workflow_default_assignee",
-            "output_schema": {
-                "status": "",
-                "messages": [],
-                "result": {
-                    "type": "",
-                    "value": ""
-                }
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Workflow Name",
-                    "name": "workflow",
-                    "type": "text",
-                    "tooltip": "Provide name of the workflow you want to retrieve default assignee from Securonix SNYPR.",
-                    "description": "Provide name of the workflow you want to retrieve default assignee from Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "list_incidents",
-            "title": "List Incidents",
-            "description": "Retrieves a list of incidents from the Securonix SNYPR platform based on the range type, date range, and other filter parameters that you have specified.",
-            "category": "investigation",
-            "annotation": "get_incident_details",
-            "output_schema": {
-                "status": "",
-                "result": {
-                    "data": {
-                        "totalIncidents": "",
-                        "incidentItems": [
-                            {
-                                "violatorText": "",
-                                "lastUpdateDate": "",
-                                "violatorId": "",
-                                "incidentType": "",
-                                "incidentId": "",
-                                "incidentStatus": "",
-                                "riskscore": "",
-                                "assignedUser": "",
-                                "priority": "",
-                                "reason": [],
-                                "violatorSubText": "",
-                                "entity": "",
-                                "workflowName": "",
-                                "url": "",
-                                "isWhitelisted": "",
-                                "watchlisted": ""
-                            }
-                        ]
-                    }
-                }
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Range Type",
-                    "name": "rangeType",
-                    "type": "select",
-                    "tooltip": "Type of filter based on which you want to retrieve the list of incidents from Securonix SNYPR. You can choose from the following options: Opened, Updated, or Closed.",
-                    "description": "Type of filter based on which you want to retrieve the list of incidents from Securonix SNYPR. You can choose from the following options: Opened, Updated, or Closed.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "options": [
-                        "Opened",
-                        "Updated",
-                        "Closed"
-                    ],
-                    "value": "Opened"
-                },
-                {
-                    "title": "Start Time",
-                    "name": "from",
-                    "type": "datetime",
-                    "tooltip": "DateTime from when you want to retrieve the list of incidents from Securonix SNYPR.",
-                    "description": "DateTime from when you want to retrieve the list of incidents from Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "End Time",
-                    "name": "to",
-                    "type": "datetime",
-                    "tooltip": "DateTime till when you want to retrieve the list of incidents from Securonix SNYPR.",
-                    "description": "DateTime till when you want to retrieve the list of incidents from Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Status",
-                    "name": "status",
-                    "type": "text",
-                    "description": "(Optional) CSV list of status values based on which you want to filter the list of incidents retrieved from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Offset",
-                    "name": "offset",
-                    "type": "integer",
-                    "description": "(Optional) 0-based index of the page that this operation should return.",
-                    "tooltip": "0 based index of the page that this operation should return.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Max Limit",
-                    "name": "max",
-                    "type": "integer",
-                    "description": "(Optional) Specify the maximum number of results or records to include in the action response",
-                    "tooltip": "Specify the maximum number of results or records to include in the action response",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": 1000
-                }
-            ]
-        },
-        {
-            "operation": "list_peer_groups",
-            "title": "List All Peer Groups",
-            "description": "Retrieves a list of all peer groups from Securonix SNYPR.",
-            "category": "investigation",
-            "annotation": "list_peer_groups",
-            "output_schema": {
-                "peerGroups": {
-                    "peerGroup": [
-                        {
-                            "criticality": "",
-                            "name": ""
-                        }
-                    ]
-                }
-            },
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "list_policies",
-            "title": "List All Policies",
-            "description": "Retrieves a list of all policies from Securonix SNYPR.",
-            "category": "investigation",
-            "annotation": "list_policies",
-            "output_schema": {
-                "policies": {
-                    "policy": [
-                        {
-                            "createdBy": "",
-                            "description": "",
-                            "criticality": "",
-                            "id": "",
-                            "createdOn": "",
-                            "name": "",
-                            "hql": ""
-                        }
-                    ]
-                }
-            },
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "list_resource_groups",
-            "title": "List All Resource Groups",
-            "description": "Retrieves a list of all resource groups from Securonix SNYPR.",
-            "category": "investigation",
-            "annotation": "list_resource_groups",
-            "output_schema": {
-                "resourceGroups": {
-                    "resourceGroup": [
-                        {
-                            "name": "",
-                            "type": ""
-                        }
-                    ]
-                }
-            },
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "list_users",
-            "title": "List All Users",
-            "description": "Retrieves a list of all users from Securonix SNYPR.",
-            "category": "investigation",
-            "annotation": "list_users",
-            "output_schema": {
-                "users": {
-                    "user": [
-                        {
-                            "approverEmployeeId": "",
-                            "costCenterCode": "",
-                            "criticality": "",
-                            "department": "",
-                            "disableDate": "",
-                            "division": "",
-                            "email": "",
-                            "employeeId": "",
-                            "employeeType": "",
-                            "enableDate": "",
-                            "firstName": "",
-                            "hireDate": "",
-                            "jobCode": "",
-                            "lastName": "",
-                            "location": "",
-                            "managerEmployeeId": "",
-                            "managerFirstname": "",
-                            "managerLastname": "",
-                            "masked": "",
-                            "riskscore": "",
-                            "skipEncryption": "",
-                            "status": "",
-                            "title": ""
-                        }
-                    ]
-                }
-            },
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "custom_query",
-            "title": "Custom Query",
-            "description": "Runs a search on Securonix SNYPR and retrieves details based on the query attributes and other input parameters that you have specified.",
-            "category": "investigation",
-            "annotation": "custom_query",
-            "output_schema": {
-                "available": "",
-                "error": "",
-                "events": [],
-                "from": "",
-                "offset": "",
-                "query": "",
-                "searchViolations": "",
-                "to": "",
-                "totalDocuments": ""
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Query",
-                    "name": "query",
-                    "type": "text",
-                    "placeholder": "index=lookup and lookupname = \"VulnerableHostLookUpTable\"",
-                    "description": "Query attributes based on which you want to run the search on Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Event Start Time",
-                    "name": "eventtime_from",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to last calendar month.",
-                    "description": "Start date and time from when you want to run the search on Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve the risk score from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Event End Time",
-                    "name": "eventtime_to",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to today.",
-                    "description": "End date and time till when you want to run the search on Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve the risk score from Securonix SNYPR. ",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Generation Start Time",
-                    "name": "generationtime_from",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to last calendar month.",
-                    "description": "Start date and time from when you want to run the search on Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve the risk score from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Generation End Time",
-                    "name": "generationtime_to",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to today.",
-                    "description": "End date and time till when you want to run the search on Securonix SNYPR.If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve the risk score from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "query_tpi",
-            "title": "Query Third Party Intelligence",
-            "description": "Retrieves details of all TPIs or specific TPIs from Securonix SNYPR based on the query attributes that you have specified.",
-            "category": "investigation",
-            "annotation": "query_third_party_intelligence",
-            "output_schema": {
-                "available": "",
-                "error": "",
-                "events": [
-                    {
-                        "directImport": " ",
-                        "hour": "",
-                        "ignored": "",
-                        "invalid": "",
-                        "invalidEventAction": "",
-                        "tenantid": "",
-                        "tenantname": "",
-                        "u_id": "",
-                        "u_userid": "",
-                        "result": {
-                            "entry": [
-                                {
-                                    "key": "",
-                                    "value": ""
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "from": "",
-                "offset": "",
-                "query": "",
-                "searchViolations": "",
-                "to": "",
-                "totalDocuments": ""
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Query",
-                    "name": "query",
-                    "type": "text",
-                    "placeholder": "tpi_type = Malicious Domain",
-                    "description": " (Optional) Query attributes based on which you want to retrieve details of TPIs from Securonix SNYPR. Note: If you do not specify any query attribute, then the details of all TPIs are retrieved from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "query_violations",
-            "title": "Query Violations",
-            "description": "Retrieves details of all violations or specific violations from Securonix SNYPR based on the query attributes and other input parameters that you have specified.",
-            "category": "investigation",
-            "annotation": "query_violations",
-            "output_schema": {},
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Query",
-                    "name": "query",
-                    "type": "text",
-                    "description": "Query attributes based on which you want to retrieve details of violations from Securonix SNYPR. Note: If you do not specify any query attribute, then the details of all violations are retrieved from Securonix SNYPR.",
-                    "required": false,
-                    "placeholder": "generationtime between \"05/06/2018 00:00:00\" \"05/06/2019 23:59:59\"",
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Generation Start Time",
-                    "name": "generationtime_from",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR.",
-                    "description": "Start date and time from when you want to retrieve details of violations from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve details of violations from Securonix SNYPR.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Generation End Time",
-                    "name": "generationtime_to",
-                    "type": "datetime",
-                    "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR.",
-                    "description": "End date and time till when you want to retrieve details of violations from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve details of violations from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "query_users",
-            "title": "Query Users",
-            "description": "Retrieves details of all users or specific users from Securonix SNYPR based on the query attributes that you have specified.",
-            "category": "investigation",
-            "annotation": "query_users",
-            "output_schema": {
-                "available": "",
-                "error": "",
-                "events": [
-                    {
-                        "directImport": "",
-                        "hour": "",
-                        "ignored": "",
-                        "invalid": "",
-                        "invalidEventAction": "",
-                        "tenantid": "",
-                        "tenantname": "",
-                        "u_id": "",
-                        "u_userid": "",
-                        "result": {
-                            "entry": [
-                                {
-                                    "key": "",
-                                    "value": ""
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "from": "",
-                "offset": "",
-                "query": "",
-                "searchViolations": "",
-                "to": "",
-                "totalDocuments": ""
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Query",
-                    "name": "query",
-                    "type": "text",
-                    "description": "(Optional) Query attributes based on which you want to retrieve details of users from Securonix SNYPR. Note: If you do not specify any query attribute, then the details of all users are retrieved from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "query_watchlist",
-            "title": "Query Watchlist",
-            "description": "Retrieves details of all watchlists or specific watchlists from Securonix SNYPR based on the query attributes that you have specified.",
-            "category": "investigation",
-            "annotation": "query_watchlist",
-            "output_schema": {
-                "available": "",
-                "error": "",
-                "events": [
-                    {
-                        "directImport": "",
-                        "hour": "",
-                        "ignored": "",
-                        "invalid": "",
-                        "invalidEventAction": "",
-                        "tenantid": "",
-                        "tenantname": "",
-                        "u_id": "",
-                        "u_userid": "",
-                        "result": {
-                            "entry": [
-                                {
-                                    "key": "",
-                                    "value": ""
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "from": "",
-                "offset": "",
-                "query": "",
-                "searchViolations": "",
-                "to": "",
-                "totalDocuments": ""
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Query",
-                    "name": "query",
-                    "type": "text",
-                    "placeholder": "watchlistname = Flight Risk Users",
-                    "description": "(Optional) Query attributes based on which you want to retrieve details of watchlists from Securonix SNYPR. Note: If you do not specify any query attribute, then the details of all watchlists are retrieved from Securonix SNYPR.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "operation": "take_action_on_incident",
-            "title": "Task Action on Incident",
-            "description": "Takes a specified action on a Securonix SNYPR incident based on the incident ID, action, and other input parameters you have specified.",
-            "category": "investigation",
-            "annotation": "take_action_on_incident",
-            "output_schema": {
-                "status": "",
-                "result": ""
-            },
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Incident ID",
-                    "name": "incidentId",
-                    "type": "text",
-                    "description": "ID of the incident in Securonix SNYPR on which you want to take the specified action.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Action Name",
-                    "name": "actionName",
-                    "type": "text",
-                    "tooltip": "Name of the action that you want to take on the specified Securonix SNYPR incident.",
-                    "description": "Name of the action that you want to take on the specified Securonix SNYPR incident.",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                },
-                {
-                    "title": "Other Required Fields",
-                    "name": "other_fields",
-                    "type": "json",
-                    "tooltip": "Additional required fields, in the JSON format, which you want to add to your request.",
-                    "description": "(Optional) Additional required fields, in the JSON format, which you want to add to your request.",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "value": ""
-                }
-            ]
+          "title": "Comment",
+          "name": "comment",
+          "type": "text",
+          "tooltip": "Comment that you want to add to the specified incident.",
+          "description": "Comment that you want to add to the specified incident.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
         }
-    ],
-    "cs_compatible": true,
-    "ingestion_supported": true,
-    "ingestion_modes": [
-        "scheduled"
-    ],
-    "help_online": "https://docs.fortinet.com/document/fortisoar/2.3.0/securonix-snypr/1000/securonix-snypr-v2-2-0"
+      ]
+    },
+    {
+      "operation": "create_incident",
+      "title": "Create Incident",
+      "description": "Creates a new incident in the Securonix SNYPR platform based on the policy name, entity type, and other input parameters you have specified. Note: If the case is already created and is present in the Securonix SNYPR platform, then return the details of the existing incident.",
+      "category": "investigation",
+      "annotation": "create_incident",
+      "output_schema": {
+        "totalIncidents": "",
+        "incidentItems": [
+          {
+            "violatorText": "",
+            "lastUpdateDate": "",
+            "violatorId": "",
+            "incidentType": "",
+            "incidentId": "",
+            "incidentStatus": "",
+            "riskscore": "",
+            "assignedUser": "",
+            "priority": "",
+            "reason": [],
+            "violatorSubText": "",
+            "entity": "",
+            "workflowName": "",
+            "url": "",
+            "isWhitelisted": "",
+            "watchlisted": "",
+            "statusCompleted": ""
+          }
+        ]
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Policy Name",
+          "name": "violationName",
+          "type": "text",
+          "tooltip": "Name of the policy that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "description": "Name of the policy that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Data Source Name",
+          "name": "datasourceName",
+          "type": "text",
+          "tooltip": "Name of the data source that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "description": "Name of the data source that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Account Name",
+          "name": "entityName",
+          "type": "text",
+          "tooltip": "Name of the account that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "description": "Name of the account that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Entity Type",
+          "name": "entityType",
+          "type": "text",
+          "tooltip": "Type of entity that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "description": "Type of entity that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Action Name",
+          "name": "actionName",
+          "type": "select",
+          "tooltip": "Name of the action available in threat management that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "description": "Name of the action available in threat management that you want to associate with the new incident that you want to create in Securonix SNYPR. You can choose from the following options: Mark as Concern and create incident, Non-Concern, or Mark in progress (still investigating).",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Mark as concern and create incident",
+            "Non-Concern",
+            "Mark in progress (still investigating)"
+          ],
+          "value": "Mark as concern and create incident"
+        },
+        {
+          "title": "Resource Name ",
+          "name": "resourceName",
+          "type": "text",
+          "tooltip": "Name of the resource that you want to associate with the new incident that you want to create in Securonix SNYPR. Note: This parameter required for Activity account.",
+          "description": "Name of the resource that you want to associate with the new incident that you want to create in Securonix SNYPR. Note: This parameter required for Activity account.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Employee ID",
+          "name": "employeeid",
+          "type": "text",
+          "tooltip": "(Optional) ID of the employee that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "description": "(Optional) ID of the employee that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Workflow Name",
+          "name": "workflow",
+          "type": "text",
+          "tooltip": "Name of the workflow that you want to associate with the new incident that you want to create in Securonix SNYPR. Note: This field required when you specify the action name as Mark as concern and create incident.",
+          "description": "Name of the workflow that you want to associate with the new incident that you want to create in Securonix SNYPR. Note: This field required when you specify the action name as Mark as concern and create incident.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Comment",
+          "name": "comment",
+          "type": "text",
+          "tooltip": "Comment that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "description": "Comment that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Criticality",
+          "name": "criticality",
+          "type": "text",
+          "tooltip": "Criticality that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "description": "Criticality that you want to associate with the new incident that you want to create in Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "check_task_on_incident",
+      "title": "Check Task on Incident",
+      "description": "Checks if the action that you have specified is allowed on the specified Securonix SNYPR incident based on the incident ID and action name you have specified.",
+      "category": "investigation",
+      "annotation": "check_task_on_incident",
+      "output_schema": {
+        "result": [
+          {
+            "status": "",
+            "actionName": "",
+            "actionDetails": [
+              {
+                "title": "",
+                "sections": {
+                  "attributes": [
+                    {
+                      "required": "",
+                      "attribute": "",
+                      "displayName": "",
+                      "attributeType": ""
+                    }
+                  ],
+                  "sectionName": ""
+                }
+              }
+            ]
+          }
+        ],
+        "status": "",
+        "messages": []
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident ID",
+          "name": "incidentId",
+          "type": "text",
+          "tooltip": "ID of the incident whose associated tasks and actions you want to retrieve from Securonix SNYPR.",
+          "description": "ID of the incident whose associated tasks and actions you want to retrieve from Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Action Name",
+          "name": "actionName",
+          "type": "text",
+          "tooltip": "Name of the action that you want to execute on the specific Securonix SNYPR incident.",
+          "description": "Name of the action that you want to execute on the specific Securonix SNYPR incident.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_available_threat_action",
+      "title": "Get Available Threat Action",
+      "description": "Retrieves a list of all available threat actions from Securonix SNYPR.",
+      "category": "investigation",
+      "annotation": "get_available_threat_action",
+      "output_schema": {
+        "status": "",
+        "messages": [],
+        "result": []
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_incident_details",
+      "title": "Get Incident Details",
+      "description": "Retrieves details of a specific incident from Securonix SNYPR based on the incident ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_incident_details",
+      "output_schema": {
+        "status": "",
+        "messages": "",
+        "result": {
+          "data": {
+            "totalIncidents": "",
+            "incidentItems": [
+              {
+                "violatorText": "",
+                "lastUpdateDate": "",
+                "violatorId": "",
+                "incidentType": "",
+                "incidentId": "",
+                "incidentStatus": "",
+                "riskscore": "",
+                "assignedUser": "",
+                "assignedGroup": "",
+                "priority": "",
+                "reason": [],
+                "violatorSubText": "",
+                "entity": "",
+                "workflowName": "",
+                "url": "",
+                "isWhitelisted": "",
+                "watchlisted": "",
+                "statusCompleted": ""
+              }
+            ]
+          }
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident ID",
+          "name": "incidentId",
+          "type": "text",
+          "description": "ID of the incident whose details you want to retrieve from Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_incident_status",
+      "title": "Get Incident Status",
+      "description": "Retrieves the status of a specific incident from Securonix SNYPR based on the incident ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_incident_status",
+      "output_schema": {
+        "status": "",
+        "messages": [],
+        "result": {
+          "status": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident ID",
+          "name": "incidentId",
+          "type": "text",
+          "tooltip": "ID of the incident whose status you want to retrieve from Securonix SNYPR.",
+          "description": "ID of the incident whose status you want to retrieve from Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_incident_workflow",
+      "title": "Get Incident Workflow",
+      "description": "Retrieves the workflow of a specific incident from Securonix SNYPR based on the incident ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_incident_workflow",
+      "output_schema": {
+        "status": "",
+        "messages": [],
+        "result": {
+          "workflow": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident ID",
+          "name": "incidentId",
+          "type": "text",
+          "tooltip": "ID of the incident whose workflow you want to retrieve from Securonix SNYPR.",
+          "description": "ID of the incident whose workflow you want to retrieve from Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_possible_action_for_incident",
+      "title": "Get Possible Actions for Incident",
+      "description": "Retrieves a list of all possible actions associated with a specific incident from Securonix SNYPR based on the incident ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_possible_action_for_incident",
+      "output_schema": {
+        "result": [
+          {
+            "status": "",
+            "actionName": "",
+            "actionDetails": [
+              {
+                "title": "",
+                "sections": {
+                  "attributes": [
+                    {
+                      "required": "",
+                      "attribute": "",
+                      "displayName": "",
+                      "attributeType": ""
+                    }
+                  ],
+                  "sectionName": ""
+                }
+              }
+            ]
+          }
+        ],
+        "status": "",
+        "messages": []
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident ID",
+          "name": "incidentId",
+          "type": "text",
+          "tooltip": "ID of the incident whose related actions you want to retrieve from Securonix SNYPR.",
+          "description": "ID of the incident whose related actions you want to retrieve from Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_risk_score",
+      "title": "Get Risk Score",
+      "description": "Retrieves risk scores for all users or risk scores from Securonix SNYPRbased on the query attributes and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_risk_score",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Query",
+          "name": "query",
+          "type": "text",
+          "description": "Query attributes based on which you want to retrieve the risk score from Securonix SNYPR. Note: If you do not specify any query attribute, then the risk scores of all users is retrieved from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "placeholder": "e.g. location='xyz' and employeeid = 123",
+          "value": ""
+        },
+        {
+          "title": "Start Time",
+          "name": "from",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to last calendar month.",
+          "description": "Start date and time from when you want to retrieve the risk score from Securonix SNYPR.If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve the risk score from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "End Time",
+          "name": "to",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to today.",
+          "description": "End date and time till when you want to retrieve the risk score from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve the risk score from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_risk_history",
+      "title": "Get Risk History",
+      "description": "Retrieves risk history for all users or risk history from Securonix SNYPR based on the query attributes and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_risk_history",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Query",
+          "name": "query",
+          "type": "text",
+          "description": "Query attributes based on which you want to retrieve the risk history from Securonix SNYPR. Note: If you do not specify any query attribute, then the risk history of all users is retrieved from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "placeholder": "e.g. location='xyz' and employeeid = 123",
+          "value": ""
+        },
+        {
+          "title": "Start Time",
+          "name": "from",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to last calendar month.",
+          "description": "Start date and time from when you want to retrieve details of violations from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve the risk history from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "End Time",
+          "name": "to",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to today",
+          "description": "End date and time till when you want to retrieve details of violations from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve the risk history from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_top_threats",
+      "title": "Get Top Threats",
+      "description": "Retrieves the top threats from Securonix SNYPR based on when the threat was last seen and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_top_threats",
+      "output_schema": {
+        "Response": {
+          "Date range": [],
+          "Docs": [
+            {
+              "Threat model id": "",
+              "Threat nodel name": "",
+              "Criticality": "",
+              "No of violator": "",
+              "Description": "",
+              "Generation time": ""
+            }
+          ],
+          "Total records": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Last Seen",
+          "name": "dateunit",
+          "type": "select",
+          "tooltip": "select time period one of the following",
+          "description": "Time period for which you want to retrieve the top threats from Securonix SNYPR. You can choose one of the following: Hours, Days, or Years.Based on the option that you select in the Last Seen drop-down list, you must specify the value for the Hours, Days, or Years. For example, if you select Hours from the Last Seen drop-down list, then you must choose the value of the hours from the Last Hours drop-down list, for example, Last 24 hours, Last 1 hour etc.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Hours",
+            "Days",
+            "Years"
+          ],
+          "onchange": {
+            "Hours": [
+              {
+                "title": "Last Hours",
+                "name": "dateunitvalue",
+                "type": "select",
+                "visible": true,
+                "required": true,
+                "editable": true,
+                "options": [
+                  "Last 1 Hour",
+                  "Last 2 Hours",
+                  "Last 6 Hours",
+                  "Last 12 Hours",
+                  "Last 24 Hours",
+                  "Last 48 Hours",
+                  "Last 72 Hours"
+                ],
+                "value": "Last 24 Hours"
+              }
+            ],
+            "Days": [
+              {
+                "title": "Last Days",
+                "name": "dateunitvalue",
+                "type": "select",
+                "visible": true,
+                "required": true,
+                "editable": true,
+                "options": [
+                  "Last 7 Days",
+                  "Last 14 Days",
+                  "Last 21 Days",
+                  "Last 30 Days",
+                  "Last 60 Days",
+                  "Last 90 Days"
+                ],
+                "value": "Last 7 Days"
+              }
+            ],
+            "Years": [
+              {
+                "title": "Last Years",
+                "name": "dateunitvalue",
+                "type": "select",
+                "visible": true,
+                "required": true,
+                "editable": true,
+                "options": [
+                  "Last Year"
+                ],
+                "value": "Last Year"
+              }
+            ]
+          },
+          "value": "Days"
+        }
+      ]
+    },
+    {
+      "operation": "get_top_violations",
+      "title": "Get Top Violations",
+      "description": "Retrieves the top violations from Securonix SNYPR based on when the violation was last seen and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_top_violations",
+      "output_schema": {
+        "Response": {
+          "Date range": [],
+          "Docs": [
+            {
+              "Criticality": "",
+              "No of violator": "",
+              "Description": "",
+              "Generation time": "",
+              "Policy id": "",
+              "Policy name": "",
+              "Violation entity": "",
+              "Policy category": "",
+              "Threat indicator": ""
+            }
+          ],
+          "Total records": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Last Seen",
+          "name": "dateunit",
+          "type": "select",
+          "tooltip": "select time period one of the following",
+          "description": "Time period for which you want to retrieve the top violations from Securonix SNYPR. You can choose one of the following: Hours, Days, or Years. Based on the option that you select in the Last Seen drop-down list, you must specify the value for the Hours, Days, or Years. For example, if you select Hours from the Last Seen drop-down list, then you must choose the value of the hours from the Last Hours drop-down list, for example, Last 24 hours, Last 1 hour, etc.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Hours",
+            "Days",
+            "Years"
+          ],
+          "onchange": {
+            "Hours": [
+              {
+                "title": "Last Hours",
+                "name": "dateunitvalue",
+                "type": "select",
+                "visible": true,
+                "required": true,
+                "editable": true,
+                "options": [
+                  "Last 1 Hour",
+                  "Last 2 Hours",
+                  "Last 6 Hours",
+                  "Last 12 Hours",
+                  "Last 24 Hours",
+                  "Last 48 Hours",
+                  "Last 72 Hours"
+                ],
+                "value": "Last 24 Hours"
+              }
+            ],
+            "Days": [
+              {
+                "title": "Last Days",
+                "name": "dateunitvalue",
+                "type": "select",
+                "visible": true,
+                "required": true,
+                "editable": true,
+                "options": [
+                  "Last 7 Days",
+                  "Last 14 Days",
+                  "Last 21 Days",
+                  "Last 30 Days",
+                  "Last 60 Days",
+                  "Last 90 Days"
+                ],
+                "value": "Last 7 Days"
+              }
+            ],
+            "Years": [
+              {
+                "title": "Last Years",
+                "name": "dateunitvalue",
+                "type": "select",
+                "visible": true,
+                "required": true,
+                "editable": true,
+                "options": [
+                  "Last Year"
+                ],
+                "value": "Last Year"
+              }
+            ]
+          },
+          "value": "Days"
+        }
+      ]
+    },
+    {
+      "operation": "get_top_violators",
+      "title": "Get Top Violators",
+      "description": "Retrieves the top violators from Securonix SNYPR based on when the violator was last seen and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_top_violators",
+      "output_schema": {
+        "Response": {
+          "Date range": [],
+          "Docs": [
+            {
+              "Violator entity": "",
+              "Department": "",
+              "Name": "",
+              "Risk score": "",
+              "Generation time": ""
+            }
+          ],
+          "Total records": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Last Seen",
+          "name": "dateunit",
+          "type": "select",
+          "description": "Time period for which you want to retrieve the top violators from Securonix SNYPR. You can choose one of the following: Hours, Days, or Years. Based on the option that you select in the Last Seen drop-down list, you must specify the value for the Hours, Days, or Years. For example, if you select Hours from the Last Seen drop-down list, then you must choose the value of the hours from the Last Hours drop-down list, for example, Last 24 hours, Last 1 hour, etc.",
+          "tooltip": "select time period one of the following",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Hours",
+            "Days",
+            "Years"
+          ],
+          "onchange": {
+            "Hours": [
+              {
+                "title": "Last Hours",
+                "name": "dateunitvalue",
+                "type": "select",
+                "visible": true,
+                "required": true,
+                "editable": true,
+                "options": [
+                  "Last 1 Hour",
+                  "Last 2 Hours",
+                  "Last 6 Hours",
+                  "Last 12 Hours",
+                  "Last 24 Hours",
+                  "Last 48 Hours",
+                  "Last 72 Hours"
+                ],
+                "value": "Last 24 Hours"
+              }
+            ],
+            "Days": [
+              {
+                "title": "Last Days",
+                "name": "dateunitvalue",
+                "type": "select",
+                "visible": true,
+                "required": true,
+                "editable": true,
+                "options": [
+                  "Last 7 Days",
+                  "Last 14 Days",
+                  "Last 21 Days",
+                  "Last 30 Days",
+                  "Last 60 Days",
+                  "Last 90 Days"
+                ],
+                "value": "Last 7 Days"
+              }
+            ],
+            "Years": [
+              {
+                "title": "Last Years",
+                "name": "dateunitvalue",
+                "type": "select",
+                "visible": true,
+                "required": true,
+                "editable": true,
+                "options": [
+                  "Last Year"
+                ],
+                "value": "Last Year"
+              }
+            ]
+          },
+          "value": "Days"
+        },
+        {
+          "title": "Offset",
+          "name": "offset",
+          "type": "integer",
+          "description": "0 based index of the page that this operation should return.",
+          "tooltip": "0 based index of the page that this operation should return.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Limit",
+          "name": "max",
+          "type": "integer",
+          "description": "Maximum number of results per page, that this operation should return.",
+          "tooltip": "Maximum number of results, per page, that this operation should return.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_workflows",
+      "title": "Get Workflows",
+      "description": "Retrieves a list of all existing workflows from Securonix SNYPR.",
+      "category": "investigation",
+      "annotation": "get_workflows",
+      "output_schema": {
+        "result": {
+          "workflows": [
+            {
+              "type": "",
+              "value": "",
+              "workflow": ""
+            }
+          ]
+        },
+        "status": "",
+        "messages": []
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_workflow_default_assignee",
+      "title": "Get Workflow Default Assignee",
+      "description": "Retrieves the default assignee details for a specified workflow from Securonix SNYPR based on the workflow name you have specified.",
+      "category": "investigation",
+      "annotation": "get_workflow_default_assignee",
+      "output_schema": {
+        "status": "",
+        "messages": [],
+        "result": {
+          "type": "",
+          "value": ""
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Workflow Name",
+          "name": "workflow",
+          "type": "text",
+          "tooltip": "Provide name of the workflow you want to retrieve default assignee from Securonix SNYPR.",
+          "description": "Provide name of the workflow you want to retrieve default assignee from Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "list_incidents",
+      "title": "List Incidents",
+      "description": "Retrieves a list of incidents from the Securonix SNYPR platform based on the range type, date range, and other filter parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "get_incident_details",
+      "output_schema": {
+        "status": "",
+        "result": {
+          "data": {
+            "totalIncidents": "",
+            "incidentItems": [
+              {
+                "violatorText": "",
+                "lastUpdateDate": "",
+                "violatorId": "",
+                "incidentType": "",
+                "incidentId": "",
+                "incidentStatus": "",
+                "riskscore": "",
+                "assignedUser": "",
+                "priority": "",
+                "reason": [],
+                "violatorSubText": "",
+                "entity": "",
+                "workflowName": "",
+                "url": "",
+                "isWhitelisted": "",
+                "watchlisted": ""
+              }
+            ]
+          }
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Range Type",
+          "name": "rangeType",
+          "type": "select",
+          "tooltip": "Type of filter based on which you want to retrieve the list of incidents from Securonix SNYPR. You can choose from the following options: Opened, Updated, or Closed.",
+          "description": "Type of filter based on which you want to retrieve the list of incidents from Securonix SNYPR. You can choose from the following options: Opened, Updated, or Closed.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Opened",
+            "Updated",
+            "Closed"
+          ],
+          "value": "Opened"
+        },
+        {
+          "title": "Start Time",
+          "name": "from",
+          "type": "datetime",
+          "tooltip": "DateTime from when you want to retrieve the list of incidents from Securonix SNYPR.",
+          "description": "DateTime from when you want to retrieve the list of incidents from Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "End Time",
+          "name": "to",
+          "type": "datetime",
+          "tooltip": "DateTime till when you want to retrieve the list of incidents from Securonix SNYPR.",
+          "description": "DateTime till when you want to retrieve the list of incidents from Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "text",
+          "description": "(Optional) CSV list of status values based on which you want to filter the list of incidents retrieved from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Offset",
+          "name": "offset",
+          "type": "integer",
+          "description": "(Optional) 0-based index of the page that this operation should return.",
+          "tooltip": "0 based index of the page that this operation should return.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Max Limit",
+          "name": "max",
+          "type": "integer",
+          "description": "(Optional) Specify the maximum number of results or records to include in the action response",
+          "tooltip": "Specify the maximum number of results or records to include in the action response",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": 1000
+        }
+      ]
+    },
+    {
+      "operation": "list_peer_groups",
+      "title": "List All Peer Groups",
+      "description": "Retrieves a list of all peer groups from Securonix SNYPR.",
+      "category": "investigation",
+      "annotation": "list_peer_groups",
+      "output_schema": {
+        "peerGroups": {
+          "peerGroup": [
+            {
+              "criticality": "",
+              "name": ""
+            }
+          ]
+        }
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "list_policies",
+      "title": "List All Policies",
+      "description": "Retrieves a list of all policies from Securonix SNYPR.",
+      "category": "investigation",
+      "annotation": "list_policies",
+      "output_schema": {
+        "policies": {
+          "policy": [
+            {
+              "createdBy": "",
+              "description": "",
+              "criticality": "",
+              "id": "",
+              "createdOn": "",
+              "name": "",
+              "hql": ""
+            }
+          ]
+        }
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "list_resource_groups",
+      "title": "List All Resource Groups",
+      "description": "Retrieves a list of all resource groups from Securonix SNYPR.",
+      "category": "investigation",
+      "annotation": "list_resource_groups",
+      "output_schema": {
+        "resourceGroups": {
+          "resourceGroup": [
+            {
+              "name": "",
+              "type": ""
+            }
+          ]
+        }
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "list_users",
+      "title": "List All Users",
+      "description": "Retrieves a list of all users from Securonix SNYPR.",
+      "category": "investigation",
+      "annotation": "list_users",
+      "output_schema": {
+        "users": {
+          "user": [
+            {
+              "approverEmployeeId": "",
+              "costCenterCode": "",
+              "criticality": "",
+              "department": "",
+              "disableDate": "",
+              "division": "",
+              "email": "",
+              "employeeId": "",
+              "employeeType": "",
+              "enableDate": "",
+              "firstName": "",
+              "hireDate": "",
+              "jobCode": "",
+              "lastName": "",
+              "location": "",
+              "managerEmployeeId": "",
+              "managerFirstname": "",
+              "managerLastname": "",
+              "masked": "",
+              "riskscore": "",
+              "skipEncryption": "",
+              "status": "",
+              "title": ""
+            }
+          ]
+        }
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "custom_query",
+      "title": "Custom Query",
+      "description": "Runs a search on Securonix SNYPR and retrieves details based on the query attributes and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "custom_query",
+      "output_schema": {
+        "available": "",
+        "error": "",
+        "events": [],
+        "from": "",
+        "offset": "",
+        "query": "",
+        "searchViolations": "",
+        "to": "",
+        "totalDocuments": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Query",
+          "name": "query",
+          "type": "text",
+          "placeholder": "index=lookup and lookupname = \"VulnerableHostLookUpTable\"",
+          "description": "Query attributes based on which you want to run the search on Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Event Start Time",
+          "name": "eventtime_from",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to last calendar month.",
+          "description": "Start date and time from when you want to run the search on Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve the risk score from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Event End Time",
+          "name": "eventtime_to",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to today.",
+          "description": "End date and time till when you want to run the search on Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve the risk score from Securonix SNYPR. ",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Generation Start Time",
+          "name": "generationtime_from",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to last calendar month.",
+          "description": "Start date and time from when you want to run the search on Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve the risk score from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Generation End Time",
+          "name": "generationtime_to",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR, Default to today.",
+          "description": "End date and time till when you want to run the search on Securonix SNYPR.If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve the risk score from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "query_tpi",
+      "title": "Query Third Party Intelligence",
+      "description": "Retrieves details of all TPIs or specific TPIs from Securonix SNYPR based on the query attributes that you have specified.",
+      "category": "investigation",
+      "annotation": "query_third_party_intelligence",
+      "output_schema": {
+        "available": "",
+        "error": "",
+        "events": [
+          {
+            "directImport": " ",
+            "hour": "",
+            "ignored": "",
+            "invalid": "",
+            "invalidEventAction": "",
+            "tenantid": "",
+            "tenantname": "",
+            "u_id": "",
+            "u_userid": "",
+            "result": {
+              "entry": [
+                {
+                  "key": "",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        ],
+        "from": "",
+        "offset": "",
+        "query": "",
+        "searchViolations": "",
+        "to": "",
+        "totalDocuments": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Query",
+          "name": "query",
+          "type": "text",
+          "placeholder": "tpi_type = Malicious Domain",
+          "description": " (Optional) Query attributes based on which you want to retrieve details of TPIs from Securonix SNYPR. Note: If you do not specify any query attribute, then the details of all TPIs are retrieved from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "query_violations",
+      "title": "Query Violations",
+      "description": "Retrieves details of all violations or specific violations from Securonix SNYPR based on the query attributes and other input parameters that you have specified.",
+      "category": "investigation",
+      "annotation": "query_violations",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Query",
+          "name": "query",
+          "type": "text",
+          "description": "Query attributes based on which you want to retrieve details of violations from Securonix SNYPR. Note: If you do not specify any query attribute, then the details of all violations are retrieved from Securonix SNYPR.",
+          "required": false,
+          "placeholder": "generationtime between \"05/06/2018 00:00:00\" \"05/06/2019 23:59:59\"",
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Generation Start Time",
+          "name": "generationtime_from",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR.",
+          "description": "Start date and time from when you want to retrieve details of violations from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the start date and time from when you want to retrieve details of violations from Securonix SNYPR.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Generation End Time",
+          "name": "generationtime_to",
+          "type": "datetime",
+          "tooltip": "If you select Custom Range option for the Time Range parameter then specify the DateTime from when you want to retrieve records from Securonix SNYPR.",
+          "description": "End date and time till when you want to retrieve details of violations from Securonix SNYPR. If you click custom expression ({}), then you must add a custom jinja expressions for the end date and time till when you want to retrieve details of violations from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "query_users",
+      "title": "Query Users",
+      "description": "Retrieves details of all users or specific users from Securonix SNYPR based on the query attributes that you have specified.",
+      "category": "investigation",
+      "annotation": "query_users",
+      "output_schema": {
+        "available": "",
+        "error": "",
+        "events": [
+          {
+            "directImport": "",
+            "hour": "",
+            "ignored": "",
+            "invalid": "",
+            "invalidEventAction": "",
+            "tenantid": "",
+            "tenantname": "",
+            "u_id": "",
+            "u_userid": "",
+            "result": {
+              "entry": [
+                {
+                  "key": "",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        ],
+        "from": "",
+        "offset": "",
+        "query": "",
+        "searchViolations": "",
+        "to": "",
+        "totalDocuments": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Query",
+          "name": "query",
+          "type": "text",
+          "description": "(Optional) Query attributes based on which you want to retrieve details of users from Securonix SNYPR. Note: If you do not specify any query attribute, then the details of all users are retrieved from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "query_watchlist",
+      "title": "Query Watchlist",
+      "description": "Retrieves details of all watchlists or specific watchlists from Securonix SNYPR based on the query attributes that you have specified.",
+      "category": "investigation",
+      "annotation": "query_watchlist",
+      "output_schema": {
+        "available": "",
+        "error": "",
+        "events": [
+          {
+            "directImport": "",
+            "hour": "",
+            "ignored": "",
+            "invalid": "",
+            "invalidEventAction": "",
+            "tenantid": "",
+            "tenantname": "",
+            "u_id": "",
+            "u_userid": "",
+            "result": {
+              "entry": [
+                {
+                  "key": "",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        ],
+        "from": "",
+        "offset": "",
+        "query": "",
+        "searchViolations": "",
+        "to": "",
+        "totalDocuments": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Query",
+          "name": "query",
+          "type": "text",
+          "placeholder": "watchlistname = Flight Risk Users",
+          "description": "(Optional) Query attributes based on which you want to retrieve details of watchlists from Securonix SNYPR. Note: If you do not specify any query attribute, then the details of all watchlists are retrieved from Securonix SNYPR.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "take_action_on_incident",
+      "title": "Task Action on Incident",
+      "description": "Takes a specified action on a Securonix SNYPR incident based on the incident ID, action, and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "take_action_on_incident",
+      "output_schema": {
+        "status": "",
+        "result": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident ID",
+          "name": "incidentId",
+          "type": "text",
+          "description": "ID of the incident in Securonix SNYPR on which you want to take the specified action.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Action Name",
+          "name": "actionName",
+          "type": "text",
+          "tooltip": "Name of the action that you want to take on the specified Securonix SNYPR incident.",
+          "description": "Name of the action that you want to take on the specified Securonix SNYPR incident.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Other Required Fields",
+          "name": "other_fields",
+          "type": "json",
+          "tooltip": "Additional required fields, in the JSON format, which you want to add to your request.",
+          "description": "(Optional) Additional required fields, in the JSON format, which you want to add to your request.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    }
+  ]
 }
