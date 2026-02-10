@@ -14,7 +14,7 @@
   "ingestion_modes": [
     "scheduled"
   ],
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/2.3.0/securonix-snypr/230/securonix-snypr-v2-3-0",
   "configuration": {
     "fields": [
       {
@@ -61,8 +61,8 @@
         "title": "API Version",
         "name": "api_version",
         "type": "text",
-        "description": "Specify the version of the Securonix SNYPR API to use. The default is 6.0.",
-        "tooltip": "Specify the version of the Securonix SNYPR API to use. The default is 6.0.",
+        "description": "Specify the version of the Securonix SNYPR API to use. Default is 6.0.",
+        "tooltip": "Specify the version of the Securonix SNYPR API to use. Default is 6.0.",
         "required": true,
         "editable": true,
         "visible": true,
